@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchSupport_Test", "SearchSupport_Test.csproj", "{21517E0A-C1E8-909D-E24F-321FB44D5251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchSupport_Test.Plugins", "SearchSupport_Test.Plugins.csproj", "{336F4F99-3DF2-0A37-FBD0-A7E90147CA7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchSupport_Test.Editor", "SearchSupport_Test.Editor.csproj", "{77FF9E90-83B2-5700-2C70-AE25880B0DA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21517E0A-C1E8-909D-E24F-321FB44D5251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21517E0A-C1E8-909D-E24F-321FB44D5251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21517E0A-C1E8-909D-E24F-321FB44D5251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21517E0A-C1E8-909D-E24F-321FB44D5251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336F4F99-3DF2-0A37-FBD0-A7E90147CA7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336F4F99-3DF2-0A37-FBD0-A7E90147CA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336F4F99-3DF2-0A37-FBD0-A7E90147CA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336F4F99-3DF2-0A37-FBD0-A7E90147CA7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77FF9E90-83B2-5700-2C70-AE25880B0DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FF9E90-83B2-5700-2C70-AE25880B0DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FF9E90-83B2-5700-2C70-AE25880B0DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FF9E90-83B2-5700-2C70-AE25880B0DA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
