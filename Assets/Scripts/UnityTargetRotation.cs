@@ -35,9 +35,9 @@ public class UnityTargetRotation: MonoBehaviour
 	private static bool gameOverFlag = false;
 
 	//配列の最大数を決定するための変数
-	private static int TARGET_MAX = 9;
+	private static int TARGET_MAX = 36;
 	//private static int TARGET_MAX = 10;
-	private static int OBJECT_MAX = 9;
+	private static int OBJECT_MAX = 36;
 
 	/*    //配列の最大数を決定するための変数
 	private static int TARGET_MAX = 12;
@@ -89,13 +89,18 @@ public class UnityTargetRotation: MonoBehaviour
 	*/
 
 	//棚の番号配置
-	public static int[] BoxIds = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	public static int[] BoxIds = new int[] {
+        1, 2, 3, 4, 5, 6, 7, 8, 9 ,10,
+        11,12,13,14,15,16,17,18,19,20,
+        21,22,23,24,25,26,27,28,29,30,
+        31,32,33,34,35,36
+    };
 	//裸眼探索モードの探索順に番号を格納するための配列
 	//public static int[] patternA = new int[] { 25, 42, 35, 11, 26, 13, 43, 31, 45, 16, 33, 22 };
 	//public static int[] patternB = new int[] { 22, 33, 16, 45, 31, 43, 13, 26, 11, 35, 42, 25 };
 	//public static int[] patternA = new int[] { 22, 16, 35, 29, 11, 43, 24, 12, 48, 30, 47, 37 };
 	//public static int[] patternB = new int[] { 37, 47, 30, 48, 12, 24, 43, 11, 29, 35, 16, 22 };
-	public static int[] patternA = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	public static int[] patternA = new int[] { 10, 32, 23, 34, 5, 36, 17, 8, 29 };
 	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	public static int[] AnnotationIds = patternA;
 	bool is_current_patternA = true; 
@@ -441,21 +446,21 @@ public class UnityTargetRotation: MonoBehaviour
 
                 }
 
-                if (CurrentAnnotationId == 0 || CurrentAnnotationId == 3 || CurrentAnnotationId == 6)
+                if (patternA[CurrentAnnotationId] % 3 == 1)
                 {
                     taskText.text = "「赤い箱」を探せ";
-                    BoxAnnotations[CurrentAnnotationId].GetComponent<Renderer>().material.color = Color.red;
+                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.red;
                 }
-                if (CurrentAnnotationId == 1 || CurrentAnnotationId == 4 || CurrentAnnotationId == 7)
+                if (patternA[CurrentAnnotationId] % 3 == 2)
                 {
                     taskText.text = "「緑の箱」を探せ";
-                    BoxAnnotations[CurrentAnnotationId].GetComponent<Renderer>().material.color = Color.green;
+                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.green;
 
                 }
-                if (CurrentAnnotationId == 2 || CurrentAnnotationId == 5 || CurrentAnnotationId == 8)
+                if (patternA[CurrentAnnotationId] % 3 == 0)
                 {
                     taskText.text = "「青い箱」を探せ";
-                    BoxAnnotations[CurrentAnnotationId].GetComponent<Renderer>().material.color = Color.blue;
+                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
                
 
