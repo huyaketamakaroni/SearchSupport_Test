@@ -484,31 +484,18 @@ public class UnityTargetRotation: MonoBehaviour
 		//探索フェーズ→回答フェーズ
 		else if (phase==2)
 		{
-			if(CurrentAnnotationId == 0){
-				if (RayCastTest.GetSelectedGameObject () != box) {
-					return;
-				}
-			}
+            if (RayCastTest.GetSelectedGameObject() != box)
+            {
+                return;
+            }
 
-			if(CurrentAnnotationId == 1){
-				if (RayCastTest.GetSelectedGameObject () != box) {
-					return;
-				}
-
-			}
-
-
-			if(CurrentAnnotationId == 2){
-				if (RayCastTest.GetSelectedGameObject () != box) {
-					return;
-				}
-			}
+            
 
             //カーソルを有効に
             //20190604
-//            cursor.SetActive(true);
-//			PereferalTest.arrow.SetActive(false);
-			audio2.Play();
+            //            cursor.SetActive(true);
+            //			PereferalTest.arrow.SetActive(false);
+            audio2.Play();
 
 			box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
 			SockertSend.SetDirectionFlag(false);
