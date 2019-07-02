@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneMananager : MonoBehaviour {
 
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        
+    }
+
     public void Load_A()
     {       
         SceneManager.LoadScene("Main");
@@ -13,7 +23,6 @@ public class SceneMananager : MonoBehaviour {
 
     public void Load_Start()
     {
-
         SceneManager.LoadScene("Start");
     }
 }

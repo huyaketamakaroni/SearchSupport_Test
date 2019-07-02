@@ -8,7 +8,24 @@ using System.Collections.Generic;
 
 public class UnityTargetRotation: MonoBehaviour
 {
-    //音用flag
+	//World Anchor
+	//WorldAnchorStore store;
+	//WorldAnchor anchor;
+	//public string AnchorStoreName;
+	//bool savedRoot = false;
+
+
+	/*テキスト表示用オブジェクト*/
+	GameObject ResultText;
+
+
+	//int cnt = 0;//カウント
+	//int flag_text = 1;//フラグ_Space呼び出し
+	/**Text用変数**/
+	TextMesh taskText;
+
+
+
 	public AudioSource audio1;
 	public AudioSource audio2;
 	public AudioSource audio3;
@@ -18,22 +35,31 @@ public class UnityTargetRotation: MonoBehaviour
 	private static bool gameOverFlag = false;
 
 	//配列の最大数を決定するための変数
-	private int TARGET_MAX = 3;
-	private int OBJECT_MAX = 36;
+	private static int TARGET_MAX = 36;
+	//private static int TARGET_MAX = 10;
+	private static int OBJECT_MAX = 36;
+
+	/*    //配列の最大数を決定するための変数
+	private static int TARGET_MAX = 12;
+	private static int TARGET_MAX = 10;
+	private static int OBJECT_MAX = 40;
+	*/
+   
+    //HoloToolKitのカーソルを使用するため無効化20190604
+	//private static GameObject cursor;
 	
         
-    //Displayを制御するための変数
+        //Displayを制御するための変数
 	public static GameObject display;
 	public static GameObject DebugLog;
 	bool is_debug_mode = true;
 	Color BoxInvisibleColor = Color.white;
 
-    /***テキスト用オブジェクト****/
-    public Text StatusbarText;
-    public TextMesh ResultText;
+	//右下のテキスト
+	public Text StatusbarText;
 
-    //クリックイベントの数を数える変数
-    public static int phase;
+	//クリックイベントの数を数える変数
+	public static int phase;
 	//画角内に数字があるかを判定
 	public static bool viewPortFlag;
 
@@ -54,6 +80,14 @@ public class UnityTargetRotation: MonoBehaviour
 	//周辺視＋中心視ガイド付き探索モードの探索順に番号を格納するための配列
 	public static int[] bothGuideTargetSelectNum;
 
+	/*    //棚の番号配置
+	public static int[] BoxIds = new int[] {
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+		20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+		30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+		40, 41, 42, 43, 44, 45, 46, 47, 48, 49};
+	*/
+
 	//棚の番号配置
 	public static int[] BoxIds = new int[] {
         1, 2, 3, 4, 5, 6, 7, 8, 9 ,10,
@@ -61,13 +95,14 @@ public class UnityTargetRotation: MonoBehaviour
         21,22,23,24,25,26,27,28,29,30,
         31,32,33,34,35,36
     };
-
-    //探索順序のパターン
-	public static int[] patternA = new int[] { 1,2,3 };
+	//裸眼探索モードの探索順に番号を格納するための配列
+	//public static int[] patternA = new int[] { 25, 42, 35, 11, 26, 13, 43, 31, 45, 16, 33, 22 };
+	//public static int[] patternB = new int[] { 22, 33, 16, 45, 31, 43, 13, 26, 11, 35, 42, 25 };
+	//public static int[] patternA = new int[] { 22, 16, 35, 29, 11, 43, 24, 12, 48, 30, 47, 37 };
+	//public static int[] patternB = new int[] { 37, 47, 30, 48, 12, 24, 43, 11, 29, 35, 16, 22 };
+	public static int[] patternA = new int[] { 10, 32, 23, 34, 5, 36, 17, 8, 29 };
 	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
-    //実際に探索させる順序の配列
-    public static int[] AnnotationIds = patternA;
+	public static int[] AnnotationIds = patternA;
 	bool is_current_patternA = true; 
 
 	//ターゲットをTextに表示させるためのカウンタ変数
@@ -76,12 +111,41 @@ public class UnityTargetRotation: MonoBehaviour
 	public float accumuDeltaTime = 0.0f;
 	public Texture targetTexture;
 
+	//void AnchorSotreReady(WorldAnchorStore store_)
+	//{
+	//    this.store=store_;
+	//    //LoadGame();
+	//    //string[] ids = store.GetAllIds();
+	//    //for (int index = 0; index<ids.Length; index++)
+	//    //{
+	//    //    Debug.Log(ids[index]);
+	//    //    if (ids[index]==AnchorStoreName)
+	//    //    {
+	//    //        anchor = store.Load(ids[index], gameObject);
+	//    //        break;
+	//    //    }
+	//    //}
+	//}
+	//void Awake() { 
+	//    Application.targetFrameRate = 60; //FPS設定
+	//}
+
+	// Use this for initialization
 	void Start()
 	{
-        //シーン内のテキストオブジェクトのコンポーネントを代入
-        StatusbarText = GameObject.Find("Statusbar").GetComponent<Text>();
-        ResultText = GameObject.Find("TaskText").GetComponent<TextMesh>();
-		ResultText.text = null;
+
+		//TaskTextっていう名前のGameObjectをUnityから探す
+		ResultText = GameObject.Find("TaskText");
+
+		//テキストメッシュ変数にオブジェクトを代入
+		taskText = ResultText.gameObject.GetComponent<TextMesh>();
+
+		//表示するテキストの中身を代入
+		taskText.text = null; ;//text描画
+
+
+
+		//WorldAnchorStore.GetAsync(AnchorStoreReady);
 
 		//各変数を初期化
 		VarInit();
@@ -162,6 +226,15 @@ public class UnityTargetRotation: MonoBehaviour
 			BoxInvisibleColor = Color.white;
 		}
 
+		//すべてのBoxAnnotation
+		/*if (is_debug_mode)
+		{
+			DebugLog.GetComponent<Renderer>().material.color=Color.green;
+		}
+		else
+		{
+			DebugLog.GetComponent<Renderer>().material.color=Color.clear;
+		}*/
 
 		//画面下の状態表示
 		if (is_debug_mode)
@@ -178,13 +251,14 @@ public class UnityTargetRotation: MonoBehaviour
 	void Update()
 	{
 		float fps = 1f / Time.deltaTime;
+		//Debug.LogFormat("{0}fps", fps);
 
 		if(phase == 0)
-			ResultText.text = "PRESS SPACE KEY";
+			taskText.text = "PRESS SPACE KEY";
 
 		if (gameOverFlag)
 		{
-			ResultText.text = "Thank You";
+			taskText.text = "Thank You";
 			return;
 		}
 
@@ -323,31 +397,69 @@ public class UnityTargetRotation: MonoBehaviour
 	{
 		GameObject box = GameObject.Find("Cube"+AnnotationIds[CurrentAnnotationId]);
 
+		/*
+        //モニタを見てるときのみトライアル開始
+		if (phase==0)
+		{
+
+			if (RayCastTest.GetSelectedGameObject()==display)
+			{
+				Debug.Log("-----------------");
+				Debug.Log("phase 1");
+				Debug.Log("\tBox name: Cube"+AnnotationIds[CurrentAnnotationId]);
+				phase++;
+			}
+			else
+			{
+				audioNG.Play();
+			}
+
+
+		}*/
 
 		//待機状態→探索フェーズ
 		if (phase==0)
 		{
+			/*
+			if(CurrentAnnotationId == 0)
+				taskText.text = "「赤い箱」を探せ";
+			if(CurrentAnnotationId == 1)
+				taskText.text = "「黄色い箱」を探せ";
+			if(CurrentAnnotationId == 2)
+				taskText.text = "「青い箱」を探せ";
+			*/
+
+			//カーソルを無効化
+			//cursor.SetActive(false);
+
 			//時間計測スタート
 
 			duration=Time.time;
 			SockertSend.SetNumFlag(true);
 			int mode = PlayModeSelecter.GetMode();
 			if (mode == 2 || mode == 4 || mode == 0) {
+                for(int i = 0; i <= TARGET_MAX; i++)
+                {
+                    
+                    
+
+
+                }
 
                 if (patternA[CurrentAnnotationId] % 3 == 1)
                 {
-                    ResultText.text = "「赤い箱」を探せ";
+                    taskText.text = "「赤い箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.red;
                 }
                 if (patternA[CurrentAnnotationId] % 3 == 2)
                 {
-                    ResultText.text = "「緑の箱」を探せ";
+                    taskText.text = "「緑の箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.green;
 
                 }
                 if (patternA[CurrentAnnotationId] % 3 == 0)
                 {
-                    ResultText.text = "「青い箱」を探せ";
+                    taskText.text = "「青い箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
                
@@ -372,7 +484,17 @@ public class UnityTargetRotation: MonoBehaviour
 		//探索フェーズ→回答フェーズ
 		else if (phase==2)
 		{
+            if (RayCastTest.GetSelectedGameObject() != box)
+            {
+                return;
+            }
 
+            
+
+            //カーソルを有効に
+            //20190604
+            //            cursor.SetActive(true);
+            //			PereferalTest.arrow.SetActive(false);
             audio2.Play();
 
 			box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
@@ -438,6 +560,7 @@ public class UnityTargetRotation: MonoBehaviour
 				Debug.Log ("----END----");
 				Debug.Log("-----------------");
 				Debug.Log("-----------------");
+				//Debug.Log(gameOverFlag);//201901227
 				CurrentAnnotationId--;
 
 			}
@@ -473,7 +596,7 @@ public class UnityTargetRotation: MonoBehaviour
 		gameOverFlag=false;
 	}
 
-	public void ForwardTempArray()
+	public static void ForwardTempArray()
 	{
 		//display.SetActive(true);
 
