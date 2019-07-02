@@ -770,6 +770,7 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
     <Compile Include="Assets\Scripts\DebugMessage.cs" />
     <Compile Include="Assets\Scripts\FileOutput.cs" />
+    <Compile Include="Assets\Scripts\ObjManager.cs" />
     <Compile Include="Assets\Scripts\PereferalTest.cs" />
     <Compile Include="Assets\Scripts\PersistoMatic.cs" />
     <Compile Include="Assets\Scripts\PreExpe\DebugCameraControl.cs" />
@@ -779,11 +780,12 @@
     <Compile Include="Assets\Scripts\PreExpe\Line4DecidePos.cs" />
     <Compile Include="Assets\Scripts\PreExpe\PlayModeSelecter.cs" />
     <Compile Include="Assets\Scripts\RayCastTest.cs" />
+    <Compile Include="Assets\Scripts\Resident.cs" />
     <Compile Include="Assets\Scripts\SceneMananager.cs" />
+    <Compile Include="Assets\Scripts\SelectMode.cs" />
     <Compile Include="Assets\Scripts\SockertSend.cs" />
     <Compile Include="Assets\Scripts\Tracker.cs" />
     <Compile Include="Assets\Scripts\UnityTargetRotation.cs" />
-    <Compile Include="Assets\SelectMode.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultInitializationErrorHandler.cs" />
     <Compile Include="Assets\Vuforia\Scripts\DefaultTrackableEventHandler.cs" />
   </ItemGroup>
