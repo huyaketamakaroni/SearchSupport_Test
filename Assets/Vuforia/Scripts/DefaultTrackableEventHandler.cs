@@ -106,7 +106,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             // 基準点の座標系としてマーカーの認識地点に設定する            
 
             SharingPoint.transform.position = transform.position;
-            SharingPoint.transform.rotation = transform.rotation;
+            //SharingPoint.transform.rotation = transform.rotation;
 
             /*
             if (shareRotaFlag)

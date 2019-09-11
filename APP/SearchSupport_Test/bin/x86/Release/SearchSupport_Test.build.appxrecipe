@@ -448,6 +448,9 @@
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level0">
       <PackagePath>Data\level0</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level1">
+      <PackagePath>Data\level1</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
     </AppxPackagedFile>
@@ -463,8 +466,14 @@
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets1.assets">
+      <PackagePath>Data\sharedassets1.assets</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level1.resS">
+      <PackagePath>Data\level1.resS</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>

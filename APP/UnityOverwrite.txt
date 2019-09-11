@@ -24,6 +24,5 @@ SearchSupport_Test\bin\x86\Release\AppX\Assets\Square44x44Logo.targetsize-24_alt
 SearchSupport_Test\bin\x86\Release\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 SearchSupport_Test\bin\x86\Release\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
 SearchSupport_Test\bin\x86\Release\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
-SearchSupport_Test\obj\x86\Debug\SearchSupport_Test.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
 SearchSupport_Test\obj\x86\Release\SearchSupport_Test.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
 SearchSupport_Test\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826

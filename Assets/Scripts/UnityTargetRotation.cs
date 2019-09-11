@@ -19,7 +19,7 @@ public class UnityTargetRotation: MonoBehaviour
 
 	//配列の最大数を決定するための変数
 	private int TARGET_MAX = 3;
-	private int OBJECT_MAX = 36;
+	private int OBJECT_MAX = 48;
 	
         
     //Displayを制御するための変数
@@ -56,10 +56,10 @@ public class UnityTargetRotation: MonoBehaviour
 
 	//棚の番号配置
 	public static int[] BoxIds = new int[] {
-        1, 2, 3, 4, 5, 6, 7, 8, 9 ,10,
-        11,12,13,14,15,16,17,18,19,20,
-        21,22,23,24,25,26,27,28,29,30,
-        31,32,33,34,35,36
+        1, 2, 3, 4, 5, 6, 7, 8, 9 ,10,11,12,
+        13,14,15,16,17,18,19,20,21,22,23,24,
+        25,26,27,28,29,30,31,32,33,34,35,36,
+        37,38,39,50,41,42,43,44,45,46,47,48
     };
 
     //探索順序のパターン
@@ -375,7 +375,7 @@ public class UnityTargetRotation: MonoBehaviour
 
             audio2.Play();
 
-			box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
+			//box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
 			SockertSend.SetDirectionFlag(false);
 
 			SockertSend.SetNumFlag(false);
@@ -445,11 +445,6 @@ public class UnityTargetRotation: MonoBehaviour
 			phase=0;
 		}
 
-		//回答フェーズ（見つけたBoxにカーソルを合わせる）
-		else if (phase==3)
-		{
-
-		}
 	}
 
 	public static GameObject GetTempTargetArray()
