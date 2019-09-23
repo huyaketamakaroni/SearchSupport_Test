@@ -12,13 +12,14 @@ public class PereferalTest : MonoBehaviour
     public static float centerX;
     public static float centerY;
     public static bool targetIsFront;
-//    public static GameObject arrow;
+    public static GameObject arrow;
 
     void Start()
     {
         CenterXYInit();
- //       arrow=GameObject.Find("arrow");
-    }
+
+
+}
 
     void CenterXYInit()
     {

@@ -32,6 +32,7 @@ public class PlayModeSelecter : MonoBehaviour {
 	void Update () {
         //数字1 裸眼探索モードをONに
         //このときCGをOFFに
+        /*
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
             mode = 1;
@@ -64,6 +65,7 @@ public class PlayModeSelecter : MonoBehaviour {
             mode = 0;
             UnityTargetRotation.ResetTempTargetArray(mode);
         }
+        */
     }
 
     public static int GetMode()

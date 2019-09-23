@@ -2,20 +2,29 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-//using UnityEngine.VR.WSA.Persistence;
-//using UnityEngine.VR.WSA;
 using System.Collections.Generic;
 
 public class UnityTargetRotation: MonoBehaviour
 {
+    //Findで探しきれないため、手動でいれる
+    [Header("オブジェクト")]
+    [SerializeField]
+    protected GameObject[] m_TargetObj = null;
+
+
+
+    [Header("音")]
     //音用flag
-	public AudioSource audio1;
+    public AudioSource audio1;
 	public AudioSource audio2;
 	public AudioSource audio3;
 	public AudioSource audioOK;
 	public AudioSource audioNG;
+    public AudioSource targetAudio;
+    public AudioClip targetClip;
 
-	private static bool gameOverFlag = false;
+
+    private static bool gameOverFlag = false;
 
 	//配列の最大数を決定するための変数
 	private int TARGET_MAX = 3;
@@ -30,29 +39,17 @@ public class UnityTargetRotation: MonoBehaviour
 
     /***テキスト用オブジェクト****/
     public Text StatusbarText;
-    public TextMesh ResultText;
+    public TextMesh TaskText;
 
     //クリックイベントの数を数える変数
     public static int phase;
 	//画角内に数字があるかを判定
 	public static bool viewPortFlag;
 
-	// GameObject管理用
-	//裸眼探索モードの探索オブジェクトを格納するための配列
-	public static GameObject[] BoxAnnotations;
-	//周辺視ガイド付き探索モードの探索オブジェクトを格納するための配列
-	public static GameObject[] ledGuideTargetArray;
-	//中心視ガイド付き探索モードの探索オブジェクトを格納するための配列
-	public static GameObject[] cgGuideTargetArray;
-	//周辺視＋中心視ガイド付き探索モードの探索オブジェクトを格納するための配列
-	public static GameObject[] bothGuideTargetArray;
 
-	//周辺視ガイド付き探索モードの探索順に番号を格納するための配列
-	public static int[] ledGuideTargetSelectNum;
-	//中心視ガイド付き探索モードの探索順に番号を格納するための配列
-	public static int[] cgGuideTargetSelectNum;
-	//周辺視＋中心視ガイド付き探索モードの探索順に番号を格納するための配列
-	public static int[] bothGuideTargetSelectNum;
+	//オブジェクトを格納するための配列
+	public static GameObject[] BoxAnnotations;
+    
 
 	//棚の番号配置
 	public static int[] BoxIds = new int[] {
@@ -63,7 +60,7 @@ public class UnityTargetRotation: MonoBehaviour
     };
 
     //探索順序のパターン
-	public static int[] patternA = new int[] { 1,2,3 };
+	public static int[] patternA = new int[] { 5,8,11 };
 	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     //実際に探索させる順序の配列
@@ -76,52 +73,35 @@ public class UnityTargetRotation: MonoBehaviour
 	public float accumuDeltaTime = 0.0f;
 	public Texture targetTexture;
 
-	void Start()
+
+    void Start()
 	{
         //シーン内のテキストオブジェクトのコンポーネントを代入
-        StatusbarText = GameObject.Find("Statusbar").GetComponent<Text>();
-        ResultText = GameObject.Find("TaskText").GetComponent<TextMesh>();
-		ResultText.text = null;
-
-		//各変数を初期化
-		VarInit();
+		TaskText.text = null;
+        //各変数を初期化
+        VarInit();
 		SetDebugMode(true);
-		//SetDebugMode(false);
+        //SetDebugMode(false);
 
-	}
+
+    }
 
 	void VarInit()
 	{
-		//変数の初期化
-		phase=0;
+        BoxAnnotations = new GameObject[OBJECT_MAX];
+        for (int i = 0; i < OBJECT_MAX; i++)
+        {
+            //GameObjectを格納
+            BoxAnnotations[i] = m_TargetObj[i];
+        }
+        DebugLog = GameObject.Find("DebugLog");
+
+        //変数の初期化
+        phase =0;
 		CurrentAnnotationId=0;
 		viewPortFlag=false;
 
-        //20190604
-		//cursor=GameObject.Find("Panel");
-		//display=GameObject.Find("Display");
-
-		BoxAnnotations=new GameObject[OBJECT_MAX];
-
-		for (int i = 0; i<OBJECT_MAX; i++)
-		{
-			//GameObjectを格納
-			BoxAnnotations[i]=GameObject.Find("Cube"+BoxIds[i]);
-			BoxAnnotations[i].GetComponent<Renderer>().material.color=BoxInvisibleColor;
-		}
-
-		DebugLog=GameObject.Find("DebugLog");
-
-		for (int i = 0; i<OBJECT_MAX; i++)
-		{
-			//テクスチャ変更
-			BoxAnnotations[i].GetComponent<Renderer>().material.mainTexture=targetTexture;
-		}
-
-		//Displayと名の付くオブジェクトを代入
-		//PereferalTest.arrow.SetActive(false);
-
-		SockertSend.SetNum(0);
+        SockertSend.SetNum(0);
 		SockertSend.SetMode(0);
 		SockertSend.SetTrial(0);
 		SockertSend.SetNumFlag(false);
@@ -133,190 +113,147 @@ public class UnityTargetRotation: MonoBehaviour
 		SockertSend.SyncDisplay(this);
 	}
 
-	//Debugモード
-	void SetDebugMode(bool is_debug_mode)
-	{
-		//画面上から流れるデバッグメッセージ
-		if (is_debug_mode)
-		{
-			for (int i = 0; i<OBJECT_MAX; i++)
-			{
-				if (BoxAnnotations[i].GetComponent<Renderer>().material.color==BoxInvisibleColor)
-					BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
-				else
-					BoxAnnotations[i].GetComponent<Renderer>().material.color=Color.white;
-			}
-			//display.GetComponent<Renderer>().material.color=Color.yellow;
-			BoxInvisibleColor = Color.white;
-		}
-		else
-		{
-			for (int i = 0; i<OBJECT_MAX; i++)
-			{
-				if (BoxAnnotations [i].GetComponent<Renderer> ().material.color == BoxInvisibleColor)
-					BoxAnnotations [i].GetComponent<Renderer> ().material.color = Color.white;
-				else
-					BoxAnnotations [i].GetComponent<Renderer> ().material.color = Color.white;
-			}
-			//display.GetComponent<Renderer>().material.color=new Color(0.1f, 0.1f, 0.0f);
-			BoxInvisibleColor = Color.white;
-		}
+    int select_mode = 0;
 
-
-		//画面下の状態表示
-		if (is_debug_mode)
-		{
-			StatusbarText.enabled=true;
-		}
-		else
-		{
-			StatusbarText.enabled=false;
-		}
-
-	}
-
-	void Update()
+    void Update()
 	{
 		float fps = 1f / Time.deltaTime;
 
-		if(phase == 0)
-			ResultText.text = "PRESS SPACE KEY";
+        if(select_mode == 0)
+        {
+            TaskText.text = "探索モード選択";
 
-		if (gameOverFlag)
-		{
-			ResultText.text = "Thank You";
-			return;
-		}
+            if (Input.GetKeyDown("1"))
+                select_mode = 1;
+            if (Input.GetKeyDown("2"))
+                select_mode = 1;
+            if (Input.GetKeyDown("3"))
+                select_mode = 1;
 
-		RayCastTest.CheckRaycast();
-		string dir = PereferalTest.GetDirection();
-		SockertSend.SetDirection(dir);
-		SockertSend.SetNum(AnnotationIds[CurrentAnnotationId]);
-		SockertSend.SetDurationFlag(false);
-		SockertSend.SetMode(PlayModeSelecter.GetMode());
-		SockertSend.SetPhase(phase);
-		SockertSend.SetDebug(is_debug_mode);
-		SockertSend.SetEnter(false);
-		SockertSend.SetTrial(CurrentAnnotationId);
+            if (select_mode != 0)
+                audio2.Play();
 
-		if (Input.GetKeyDown(KeyCode.Alpha0)||
-			Input.GetKeyDown(KeyCode.Alpha1)||
-			Input.GetKeyDown(KeyCode.Alpha2)||
-			Input.GetKeyDown(KeyCode.Alpha3)||
-			Input.GetKeyDown(KeyCode.Alpha4)
-		)
-		{
-			SetDebugMode(is_debug_mode);
-			CurrentAnnotationId=0;
-			phase=0;
-			duration=0.0;
-			CurrentAnnotationId=0;
-			gameOverFlag=false;
-		}
-		if (Input.GetKeyDown(KeyCode.Home))
-		{
-			LoadGame();
-			Debug.Log("Key: Home");
-		}
-
-		if (Input.GetKeyDown(KeyCode.End))
-		{
-			SaveGame();
-			Debug.Log("Key: End");
-		}
-
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			is_debug_mode=!is_debug_mode;
-			SetDebugMode(is_debug_mode);
-			Debug.Log("Key: P");
-		}
-
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			ForwardTempArray();
-			Debug.Log("Key: F");
-		}
-
-		if (Input.GetKeyDown(KeyCode.B))
-		{
-			BackTempArray();
-			Debug.Log("Key: B");
-		}
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-
-			ProceesPhase();
-			Debug.Log("Key: Space");
-		}
-
-		if (Input.GetKeyDown(KeyCode.Tab))
-		{
-			if (is_current_patternA)
-			{
-				AnnotationIds=patternB;
-				is_current_patternA=false;
-			}
-			else
-			{
-				AnnotationIds=patternA;
-				is_current_patternA=true;
-			}
-
-			Debug.Log("Key: Tab");
-		}
-
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			SockertSend.SetEnter(true);
-			SetDebugMode(is_debug_mode);
-			CurrentAnnotationId=0;
-			phase=0;
-			duration=0.0;
-			CurrentAnnotationId=0;
-			Debug.Log("Key: Enter");
-		}
-
-		if (is_current_patternA)
-		{
-			SockertSend.SetPattern("A");
-		}
-		else
-		{
-			SockertSend.SetPattern("B"); 
-		}
-
-		//フラグを全部見てから、最後にSocketを送る
-		SockertSend.SyncDisplay(this);
-
-		if (accumuDeltaTime>1.0f/30)
-		{
-			SockertSend.SyncDisplay(this);
-			accumuDeltaTime=0.0f;
-		}
-		accumuDeltaTime+=Time.deltaTime;
+        }
 
 
-		//Status Bar
 
-
-		try
-		{
-			string objectName = RayCastTest.GetSelectedGameObject().name;
-			StatusbarText.text="mode: "+PlayModeSelecter.GetMode()+", "
-				+"phase: "+phase+", "
-				+AnnotationIds[CurrentAnnotationId]+"-"+objectName+", dir: "+dir;
-		}
-		catch (System.NullReferenceException)
-		{
-			StatusbarText.text="mode: "+PlayModeSelecter.GetMode()+", "
-				+"phase: "+phase+", "
-				+"-"+"null"+", dir: "+dir; ;
-		}
+        if (select_mode != 0)
+            Task();
 
 
 	}
+
+    void Task()
+    {
+
+        if (phase == 0)
+            TaskText.text = "PRESS SPACE KEY";
+
+        if (gameOverFlag)
+        {
+            TaskText.text = "Thank You";
+            return;
+        }
+
+        RayCastTest.CheckRaycast();
+        string dir = PereferalTest.GetDirection();
+        SockertSend.SetDirection(dir);
+        SockertSend.SetNum(AnnotationIds[CurrentAnnotationId]);
+        SockertSend.SetDurationFlag(false);
+        SockertSend.SetMode(PlayModeSelecter.GetMode());
+        SockertSend.SetPhase(phase);
+        SockertSend.SetDebug(is_debug_mode);
+        SockertSend.SetEnter(false);
+        SockertSend.SetTrial(CurrentAnnotationId);
+
+        if (Input.GetKeyDown(KeyCode.Alpha0) ||
+            Input.GetKeyDown(KeyCode.Alpha1) ||
+            Input.GetKeyDown(KeyCode.Alpha2) ||
+            Input.GetKeyDown(KeyCode.Alpha3) ||
+            Input.GetKeyDown(KeyCode.Alpha4)
+        )
+        {
+            SetDebugMode(is_debug_mode);
+            CurrentAnnotationId = 0;
+            phase = 0;
+            duration = 0.0;
+            CurrentAnnotationId = 0;
+            gameOverFlag = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            ProceesPhase();
+            Debug.Log("Key: Space");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (is_current_patternA)
+            {
+                AnnotationIds = patternB;
+                is_current_patternA = false;
+            }
+            else
+            {
+                AnnotationIds = patternA;
+                is_current_patternA = true;
+            }
+
+            Debug.Log("Key: Tab");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SockertSend.SetEnter(true);
+            SetDebugMode(is_debug_mode);
+            CurrentAnnotationId = 0;
+            phase = 0;
+            duration = 0.0;
+            CurrentAnnotationId = 0;
+            select_mode = 0;
+            Debug.Log("Key: Enter");
+        }
+
+        if (is_current_patternA)
+        {
+            SockertSend.SetPattern("A");
+        }
+        else
+        {
+            SockertSend.SetPattern("B");
+        }
+
+        //フラグを全部見てから、最後にSocketを送る
+        SockertSend.SyncDisplay(this);
+
+        if (accumuDeltaTime > 1.0f / 30)
+        {
+            SockertSend.SyncDisplay(this);
+            accumuDeltaTime = 0.0f;
+        }
+        accumuDeltaTime += Time.deltaTime;
+
+
+        //Status Bar
+
+
+        try
+        {
+            string objectName = RayCastTest.GetSelectedGameObject().name;
+            StatusbarText.text = "mode: " + PlayModeSelecter.GetMode() + ", "
+                + "phase: " + phase + ", "
+                + AnnotationIds[CurrentAnnotationId] + "-" + objectName + ", dir: " + dir;
+        }
+        catch (System.NullReferenceException)
+        {
+            StatusbarText.text = "mode: " + PlayModeSelecter.GetMode() + ", "
+                + "phase: " + phase + ", "
+                + "-" + "null" + ", dir: " + dir; ;
+        }
+    }
+
 
 	//スペースを押したときの動作
 	void ProceesPhase()
@@ -336,18 +273,18 @@ public class UnityTargetRotation: MonoBehaviour
 
                 if (patternA[CurrentAnnotationId] % 3 == 1)
                 {
-                    ResultText.text = "「赤い箱」を探せ";
+                    TaskText.text = "「赤い箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.red;
                 }
                 if (patternA[CurrentAnnotationId] % 3 == 2)
                 {
-                    ResultText.text = "「緑の箱」を探せ";
+                    TaskText.text = "「緑の箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.green;
 
                 }
                 if (patternA[CurrentAnnotationId] % 3 == 0)
                 {
-                    ResultText.text = "「青い箱」を探せ";
+                    TaskText.text = "「青い箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
                
@@ -363,19 +300,23 @@ public class UnityTargetRotation: MonoBehaviour
 				SockertSend.SetDirectionFlag(false);
 			}
 
-			audio1.Play();
-			Debug.Log("-----------------");
-			Debug.Log("phase 2");
-			phase = 2;
+            targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
+            targetAudio.clip = targetClip;
+
+            audio1.Play();
+            targetAudio.Play();
+
+            Debug.Log("-----------------");
+			Debug.Log("phase 1");
+			phase = 1;
 		}
 
 		//探索フェーズ→回答フェーズ
-		else if (phase==2)
+		else if (phase==1)
 		{
 
             audio2.Play();
 
-			//box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
 			SockertSend.SetDirectionFlag(false);
 
 			SockertSend.SetNumFlag(false);
@@ -389,15 +330,10 @@ public class UnityTargetRotation: MonoBehaviour
 			//正解／不正解にかかわらずいずれかのBoxを見ている場合は次にすすむ
 			bool is_looking_at_box = false;
 
-
-			for (int i = 0; i<OBJECT_MAX; i++)
-			{
-				if (RayCastTest.GetSelectedGameObject()==BoxAnnotations[i])
-				{
-					is_looking_at_box=true;
-					break;
-				}
-			}
+            if (RayCastTest.GetSelectedGameObject() == BoxAnnotations[patternA[CurrentAnnotationId] - 1])
+            {
+                is_looking_at_box = true;
+            }
 
 
 			//正誤送信
@@ -415,10 +351,13 @@ public class UnityTargetRotation: MonoBehaviour
 				return;
 			}
 
+            //正解の場合次へ
 
-			//いずれかのBoxを見ていた場合
-			audioOK.Play();
+            targetAudio.clip = null;
+            targetAudio.Play();
+            audioOK.Play();
 			box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
+
 
 			//ディスプレイを見たとき
 			//数字を表示，時間を記録しない
@@ -459,78 +398,47 @@ public class UnityTargetRotation: MonoBehaviour
 		}
 	}
 
-	public static void ResetTempTargetArray(int mode)
-	{
-		//display.SetActive(true);
-		SockertSend.SetNumFlag(false);
-		CurrentAnnotationId=0;
-		phase=0;
-		gameOverFlag=false;
-	}
 
-	public void ForwardTempArray()
-	{
-		//display.SetActive(true);
+    //Debugモード
+    void SetDebugMode(bool is_debug_mode)
+    {
+        //画面上から流れるデバッグメッセージ
+        if (is_debug_mode)
+        {
+            for (int i = 0; i < OBJECT_MAX; i++)
+            {
+                if (BoxAnnotations[i].GetComponent<Renderer>().material.color == BoxInvisibleColor)
+                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
+                else
+                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
+            }
 
-		//要修正
-		BoxAnnotations[CurrentAnnotationId].SetActive(false);
-		phase=0;
-		CurrentAnnotationId++;
-		if (CurrentAnnotationId==TARGET_MAX)
-			CurrentAnnotationId=TARGET_MAX-1;
+            BoxInvisibleColor = Color.white;
+        }
+        else
+        {
+            for (int i = 0; i < OBJECT_MAX; i++)
+            {
+                if (BoxAnnotations[i].GetComponent<Renderer>().material.color == BoxInvisibleColor)
+                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
+                else
+                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
+            }
+            BoxInvisibleColor = Color.white;
+        }
 
-		//要修正
-		BoxAnnotations[CurrentAnnotationId].SetActive(true);
 
-	}
+        //画面下の状態表示
+        if (is_debug_mode)
+        {
+            StatusbarText.enabled = true;
+        }
+        else
+        {
+            StatusbarText.enabled = false;
+        }
 
-	public static void BackTempArray()
-	{
-		//display.SetActive(true);
-
-		//要修正
-		BoxAnnotations[CurrentAnnotationId].SetActive(false);
-		phase=0;
-		CurrentAnnotationId--;
-		if (CurrentAnnotationId<0)
-			CurrentAnnotationId=0;
-
-		//要修正
-		BoxAnnotations[CurrentAnnotationId].SetActive(true);
-
-	}
-
-	private void SaveGame()
-	{
-		// Save data about holograms positioned by this world anchor
-		//if (!this.savedRoot) // Only Save the root once
-		//{
-		//    anchor = gameObject.AddComponent<WorldAnchor>();
-		//    string name = gameObject.name.ToString();
-		//    Debug.Log("game object name:" + name);
-		//    this.store.Delete(name);
-		//    bool wasSaved = this.savedRoot=this.store.Save(name, anchor);
-		//    if (wasSaved)
-		//    {
-		//        Debug.Log("Saved world anchor");
-		//    }
-		//    else
-		//    {
-		//        Debug.Log("Could not save world anchor");
-		//    }
-
-		//}
-	}
-
-	private void LoadGame()
-	{
-		// Save data about holograms positioned by this world anchor
-		//this.savedRoot = this.store.Load(gameObject.name.ToString(), gameObject);
-		//if (!this.savedRoot)
-		//{
-		//     Debug.Log("Could not load world anchor");
-		//}
-	}
+    }
 
 }
 
