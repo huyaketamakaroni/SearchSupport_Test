@@ -478,6 +478,9 @@
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets1.assets.resS">
+      <PackagePath>Data\sharedassets1.assets.resS</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
     </AppxPackagedFile>

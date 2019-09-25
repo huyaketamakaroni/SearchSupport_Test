@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
-  <Tracking>
-    <ImageTarget name="MarioTennis" size="281.000000 477.600708" />
-    <ImageTarget name="SumashBros" size="283.000000 481.000000" />
-    <ImageTarget name="Splatoon2" size="0.100000 0.161837" />
-  </Tracking>
-</QCARConfig>

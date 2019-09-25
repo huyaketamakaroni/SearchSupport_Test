@@ -60,7 +60,7 @@ public class UnityTargetRotation: MonoBehaviour
     };
 
     //探索順序のパターン
-	public static int[] patternA = new int[] { 5,8,11 };
+	public static int[] patternA = new int[] { 5,17,48 };
 	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     //実際に探索させる順序の配列
