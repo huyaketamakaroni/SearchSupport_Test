@@ -11,6 +11,8 @@ public class UnityTargetRotation: MonoBehaviour
     [SerializeField]
     protected GameObject[] m_TargetObj = null;
 
+    public GameObject arrowObj;
+
 
 
     [Header("音")]
@@ -124,15 +126,34 @@ public class UnityTargetRotation: MonoBehaviour
             TaskText.text = "探索モード選択";
 
             if (Input.GetKeyDown("1"))
+            {
+                //中心視
                 select_mode = 1;
-            if (Input.GetKeyDown("2"))
-                select_mode = 1;
-            if (Input.GetKeyDown("3"))
-                select_mode = 1;
+                arrowObj.SetActive(true);
+            }
+            else if (Input.GetKeyDown("2"))
+            {
+                //音像定位
+                select_mode = 2;
+                arrowObj.SetActive(false);
 
+
+            }
+            else if (Input.GetKeyDown("3"))
+            {
+                //周辺視のみ
+                select_mode = 3;
+                arrowObj.SetActive(false);
+            }
+            else if (Input.GetKeyDown("4"))
+            {
+                //Debugモード
+                select_mode = 4;
+                arrowObj.SetActive(true);
+            }
+                
             if (select_mode != 0)
                 audio2.Play();
-
         }
 
 
@@ -140,14 +161,28 @@ public class UnityTargetRotation: MonoBehaviour
         if (select_mode != 0)
             Task();
 
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SockertSend.SetEnter(true);
+            SetDebugMode(is_debug_mode);
+            phase = 0;
+            duration = 0.0;
+            CurrentAnnotationId = 0;
+            select_mode = 0;
+            gameOverFlag = false;
+            Debug.Log("Key: Enter");
+        }
 
-	}
+
+    }
 
     void Task()
     {
 
         if (phase == 0)
+        {
             TaskText.text = "PRESS SPACE KEY";
+        }
 
         if (gameOverFlag)
         {
@@ -166,20 +201,6 @@ public class UnityTargetRotation: MonoBehaviour
         SockertSend.SetEnter(false);
         SockertSend.SetTrial(CurrentAnnotationId);
 
-        if (Input.GetKeyDown(KeyCode.Alpha0) ||
-            Input.GetKeyDown(KeyCode.Alpha1) ||
-            Input.GetKeyDown(KeyCode.Alpha2) ||
-            Input.GetKeyDown(KeyCode.Alpha3) ||
-            Input.GetKeyDown(KeyCode.Alpha4)
-        )
-        {
-            SetDebugMode(is_debug_mode);
-            CurrentAnnotationId = 0;
-            phase = 0;
-            duration = 0.0;
-            CurrentAnnotationId = 0;
-            gameOverFlag = false;
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -204,17 +225,7 @@ public class UnityTargetRotation: MonoBehaviour
             Debug.Log("Key: Tab");
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SockertSend.SetEnter(true);
-            SetDebugMode(is_debug_mode);
-            CurrentAnnotationId = 0;
-            phase = 0;
-            duration = 0.0;
-            CurrentAnnotationId = 0;
-            select_mode = 0;
-            Debug.Log("Key: Enter");
-        }
+
 
         if (is_current_patternA)
         {
@@ -287,8 +298,8 @@ public class UnityTargetRotation: MonoBehaviour
                     TaskText.text = "「青い箱」を探せ";
                     BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
-               
 
+                TargetTracker.targetObject = BoxAnnotations[patternA[CurrentAnnotationId] - 1];
             }
 
 			if (mode==3||mode==4||mode==0)
@@ -300,8 +311,11 @@ public class UnityTargetRotation: MonoBehaviour
 				SockertSend.SetDirectionFlag(false);
 			}
 
-            targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
-            targetAudio.clip = targetClip;
+            if(select_mode == 2 || select_mode == 4)
+            {
+                targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
+                targetAudio.clip = targetClip;
+            }
 
             audio1.Play();
             targetAudio.Play();

@@ -762,6 +762,7 @@
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UICollection.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityScaler.cs" />
     <Compile Include="Assets\HoloToolkit\UX\Scripts\UsabilityUtilities.cs" />
+    <Compile Include="Assets\Scenes\TargetTracker.cs" />
     <Compile Include="Assets\Scripts\DebugMessage.cs" />
     <Compile Include="Assets\Scripts\FileOutput.cs" />
     <Compile Include="Assets\Scripts\ObjManager.cs" />
