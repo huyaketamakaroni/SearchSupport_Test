@@ -62,7 +62,7 @@ public class UnityTargetRotation: MonoBehaviour
     };
 
     //探索順序のパターン
-	public static int[] patternA = new int[] { 5,17,48 };
+	public static int[] patternA = new int[] { 4,17,48 };
 	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     //実際に探索させる順序の配列
@@ -130,13 +130,16 @@ public class UnityTargetRotation: MonoBehaviour
                 //中心視
                 select_mode = 1;
                 arrowObj.SetActive(true);
+                DebugLog.SetActive(false);
+                StatusbarText.color = Color.black;
             }
             else if (Input.GetKeyDown("2"))
             {
                 //音像定位
                 select_mode = 2;
                 arrowObj.SetActive(false);
-
+                DebugLog.SetActive(false);
+                StatusbarText.color = Color.black;
 
             }
             else if (Input.GetKeyDown("3"))
@@ -144,14 +147,21 @@ public class UnityTargetRotation: MonoBehaviour
                 //周辺視のみ
                 select_mode = 3;
                 arrowObj.SetActive(false);
+                DebugLog.SetActive(false);
+                StatusbarText.color = Color.black;
+
             }
             else if (Input.GetKeyDown("4"))
             {
                 //Debugモード
                 select_mode = 4;
                 arrowObj.SetActive(true);
+                DebugLog.SetActive(true);
+                StatusbarText.color = Color.yellow;
+
+
             }
-                
+
             if (select_mode != 0)
                 audio2.Play();
         }
@@ -311,14 +321,16 @@ public class UnityTargetRotation: MonoBehaviour
 				SockertSend.SetDirectionFlag(false);
 			}
 
-            if(select_mode == 2 || select_mode == 4)
-            {
-                targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
-                targetAudio.clip = targetClip;
+            targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
+
+            if (select_mode == 2 || select_mode == 4)
+            {                
+                targetAudio.clip = targetClip;                
             }
 
-            audio1.Play();
             targetAudio.Play();
+            audio1.Play();
+            
 
             Debug.Log("-----------------");
 			Debug.Log("phase 1");

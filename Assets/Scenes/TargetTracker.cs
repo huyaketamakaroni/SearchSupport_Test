@@ -65,7 +65,7 @@ public class TargetTracker : MonoBehaviour
             GameObject gameObject = child.gameObject;
             Renderer renderer = gameObject.GetComponent<Renderer>();
 
-            renderer.enabled = renderFlag;
+            //renderer.enabled = renderFlag;
             //renderer.material.color = matColor;
         }
     }

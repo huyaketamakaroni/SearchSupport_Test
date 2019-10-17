@@ -2975,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anywayObject: {fileID: 799542133}
-  forwardDistance: 0.5
+  forwardDistance: 0.8
   thresholdNear: 0.1
   thresholdMiddle: 0.1
   thresholdAirTap: 0.1
@@ -3232,6 +3232,11 @@ MeshRenderer:
 --- !u!1 &818224365 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1372541880982678, guid: d29bc40b7f3df26479d6a0aac211c355,
+    type: 2}
+  m_PrefabInternal: {fileID: 1838359028}
+--- !u!4 &818224370 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4587520633816736, guid: d29bc40b7f3df26479d6a0aac211c355,
     type: 2}
   m_PrefabInternal: {fileID: 1838359028}
 --- !u!20 &818224371 stripped
@@ -4752,7 +4757,7 @@ MonoBehaviour:
   audioOK: {fileID: 1606641774}
   audioNG: {fileID: 1949379886}
   targetAudio: {fileID: 0}
-  targetClip: {fileID: 8300000, guid: 9ea37cf1a5ec9514d9513bd8d74a7ead, type: 3}
+  targetClip: {fileID: 8300000, guid: ddb3e184c59591240992f7d11331350f, type: 3}
   StatusbarText: {fileID: 1007039360}
   TaskText: {fileID: 799542135}
   duration: 0
@@ -8836,7 +8841,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 818224370}
     m_Modifications:
     - target: {fileID: 400000, guid: 4ff4a9893e7f6284cbfe2242a7d13452, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8868,7 +8873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff4a9893e7f6284cbfe2242a7d13452, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4ff4a9893e7f6284cbfe2242a7d13452, type: 3}
       propertyPath: m_LocalScale.x
@@ -9371,7 +9376,7 @@ Prefab:
     - target: {fileID: 20770519707920992, guid: d29bc40b7f3df26479d6a0aac211c355,
         type: 2}
       propertyPath: near clip plane
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 20770519707920992, guid: d29bc40b7f3df26479d6a0aac211c355,
         type: 2}
