@@ -37,7 +37,7 @@ public class UnityTargetRotation: MonoBehaviour
 	public GameObject display;
 	public static GameObject DebugLog;
 	bool is_debug_mode = true;
-	Color BoxInvisibleColor = Color.white;
+	Color BoxInvisibleColor = Color.black;
 
     /***テキスト用オブジェクト****/
     public Text StatusbarText;
@@ -63,11 +63,12 @@ public class UnityTargetRotation: MonoBehaviour
 
     //探索順序のパターン
 	public static int[] patternA = new int[] { 4,17,48 };
-	public static int[] patternB = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
+	public static int[] patternB = new int[] { 1, 2, 3 };
+    public static int[] patternC = new int[] { 36, 19, 12 };
+    
     //実際に探索させる順序の配列
-    public static int[] AnnotationIds = patternA;
-	bool is_current_patternA = true; 
+    public static int[] AnnotationIds = null;
+
 
 	//ターゲットをTextに表示させるためのカウンタ変数
 	public static int CurrentAnnotationId = 0;
@@ -123,7 +124,8 @@ public class UnityTargetRotation: MonoBehaviour
 
         if(select_mode == 0)
         {
-            TaskText.text = "探索モード選択";
+             //情報提示パターンの選択
+            TaskText.text = "提示パターン選択";
 
             if (Input.GetKeyDown("1"))
             {
@@ -131,7 +133,7 @@ public class UnityTargetRotation: MonoBehaviour
                 select_mode = 1;
                 arrowObj.SetActive(true);
                 DebugLog.SetActive(false);
-                StatusbarText.color = Color.black;
+                StatusbarText.enabled = false;
             }
             else if (Input.GetKeyDown("2"))
             {
@@ -139,7 +141,7 @@ public class UnityTargetRotation: MonoBehaviour
                 select_mode = 2;
                 arrowObj.SetActive(false);
                 DebugLog.SetActive(false);
-                StatusbarText.color = Color.black;
+                StatusbarText.enabled = false;
 
             }
             else if (Input.GetKeyDown("3"))
@@ -148,7 +150,7 @@ public class UnityTargetRotation: MonoBehaviour
                 select_mode = 3;
                 arrowObj.SetActive(false);
                 DebugLog.SetActive(false);
-                StatusbarText.color = Color.black;
+                StatusbarText.enabled = false;
 
             }
             else if (Input.GetKeyDown("4"))
@@ -157,7 +159,7 @@ public class UnityTargetRotation: MonoBehaviour
                 select_mode = 4;
                 arrowObj.SetActive(true);
                 DebugLog.SetActive(true);
-                StatusbarText.color = Color.yellow;
+                StatusbarText.enabled = true;
 
 
             }
@@ -168,8 +170,21 @@ public class UnityTargetRotation: MonoBehaviour
 
 
 
-        if (select_mode != 0)
+        if (select_mode != 0 && AnnotationIds == null)
+        {
+            TaskText.text = "探索パターンを選択";
+
+            if (Input.GetKeyDown("a"))
+                AnnotationIds = patternA;
+            else if (Input.GetKeyDown("b"))
+                AnnotationIds = patternB;
+            else if (Input.GetKeyDown("c"))
+                AnnotationIds = patternC;
+        }
+
+        if (select_mode != 0 && AnnotationIds != null)
             Task();
+
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -180,6 +195,8 @@ public class UnityTargetRotation: MonoBehaviour
             CurrentAnnotationId = 0;
             select_mode = 0;
             gameOverFlag = false;
+            AnnotationIds = null;
+            DebugLog.SetActive(true);
             Debug.Log("Key: Enter");
         }
 
@@ -219,32 +236,11 @@ public class UnityTargetRotation: MonoBehaviour
             Debug.Log("Key: Space");
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (is_current_patternA)
-            {
-                AnnotationIds = patternB;
-                is_current_patternA = false;
-            }
-            else
-            {
-                AnnotationIds = patternA;
-                is_current_patternA = true;
-            }
-
-            Debug.Log("Key: Tab");
-        }
+        
 
 
 
-        if (is_current_patternA)
-        {
-            SockertSend.SetPattern("A");
-        }
-        else
-        {
-            SockertSend.SetPattern("B");
-        }
+   
 
         //フラグを全部見てから、最後にSocketを送る
         SockertSend.SyncDisplay(this);
@@ -292,24 +288,24 @@ public class UnityTargetRotation: MonoBehaviour
 			int mode = PlayModeSelecter.GetMode();
 			if (mode == 2 || mode == 4 || mode == 0) {
                 
-                if (patternA[CurrentAnnotationId] % 3 == 1)
+                if (AnnotationIds[CurrentAnnotationId] % 3 == 1)
                 {
                     TaskText.text = "「赤い箱」を探せ";
-                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.red;
+                    BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.red;
                 }
-                if (patternA[CurrentAnnotationId] % 3 == 2)
+                if (AnnotationIds[CurrentAnnotationId] % 3 == 2)
                 {
                     TaskText.text = "「緑の箱」を探せ";
-                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.green;
+                    BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.green;
 
                 }
-                if (patternA[CurrentAnnotationId] % 3 == 0)
+                if (AnnotationIds[CurrentAnnotationId] % 3 == 0)
                 {
                     TaskText.text = "「青い箱」を探せ";
-                    BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
+                    BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
 
-                TargetTracker.targetObject = BoxAnnotations[patternA[CurrentAnnotationId] - 1];
+                TargetTracker.targetObject = BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1];
             }
 
 			if (mode==3||mode==4||mode==0)
@@ -321,7 +317,7 @@ public class UnityTargetRotation: MonoBehaviour
 				SockertSend.SetDirectionFlag(false);
 			}
 
-            targetAudio = BoxAnnotations[patternA[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
+            targetAudio = BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1].GetComponent<AudioSource>();
 
             if (select_mode == 2 || select_mode == 4)
             {                
@@ -356,7 +352,7 @@ public class UnityTargetRotation: MonoBehaviour
 			//正解／不正解にかかわらずいずれかのBoxを見ている場合は次にすすむ
 			bool is_looking_at_box = false;
 
-            if (RayCastTest.GetSelectedGameObject() == BoxAnnotations[patternA[CurrentAnnotationId] - 1])
+            if (RayCastTest.GetSelectedGameObject() == BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1])
             {
                 is_looking_at_box = true;
             }

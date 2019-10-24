@@ -589,12 +589,6 @@
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp.dll">
-      <PackagePath>Assembly-CSharp.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp-firstpass.dll">
-      <PackagePath>Assembly-CSharp-firstpass.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
     </AppxPackagedFile>
@@ -672,6 +666,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\GLTFSerializationUWP.dll">
       <PackagePath>GLTFSerializationUWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp.dll">
+      <PackagePath>Assembly-CSharp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp-firstpass.dll">
+      <PackagePath>Assembly-CSharp-firstpass.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Core\SearchSupport_Test.exe">
       <PackagePath>SearchSupport_Test.exe</PackagePath>

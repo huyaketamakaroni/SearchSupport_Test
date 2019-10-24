@@ -111,8 +111,6 @@ C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\R
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\System.Xml.XDocument.dll
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\System.Xml.XmlDocument.dll
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\System.Xml.XmlSerializer.dll
-C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Assembly-CSharp-firstpass.dll
-C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Assembly-CSharp.dll
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\BridgeInterface.winmd
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\GLTFSerializationUWP.dll
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Newtonsoft.Json.dll
@@ -205,8 +203,6 @@ C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\R
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.CoreModule.pdb
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.ClothModule.pdb
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.AudioModule.pdb
-C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Assembly-CSharp.pdb
-C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Assembly-CSharp-firstpass.pdb
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.AIModule.pdb
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.AccessibilityModule.pdb
 C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\UnityEngine.CrashReportingModule.pdb

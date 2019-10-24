@@ -1,6 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
+        <UnityWSASolutionName>SearchSupport_Test</UnityWSASolutionName>
+        <UnityWSASolutionDir>C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\</UnityWSASolutionDir>
+        <UnityProjectDir>C:\Users\aki\Documents\Unity\SearchSupport_Test\</UnityProjectDir>
         <UnityWSAPlayerDir>D:\Program Files\Unity2017.4.27f1\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
-        <UnityWSAToolsDir>$(SolutionDir)Unity\Tools\</UnityWSAToolsDir>
+        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
     </PropertyGroup>
 </Project>
