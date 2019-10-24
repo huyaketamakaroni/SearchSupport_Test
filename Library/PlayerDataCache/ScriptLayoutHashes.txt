@@ -402,7 +402,7 @@ da88126cdf11ba2e81311bc5c64d91f3 Assembly-CSharp.dll:HoloToolkit.Unity.InputModu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Sharing.TransformSynchronizer
 14b6addcca4e931e521ac082ad7316db Assembly-CSharp.dll:HoloToolkit.Unity.AudioOccluder
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SockertSend
-27bf100af0deace605fac0829e1a97c0 Assembly-CSharp.dll:.UnityTargetRotation
+6a51f13a820faf01cd498f6b8817669d Assembly-CSharp.dll:.UnityTargetRotation
 f1dddc522eb4451a473352e2116e6cff Assembly-CSharp.dll:HoloToolkit.Unity.InputModule.GamePadHandlerBase
 818cc923a72dcfe3a52a0eb281828393 Assembly-CSharp.dll:HoloToolkit.Unity.HeadsUpDirectionIndicator
 49febca92ce435f92504a89f23fd84ca Assembly-CSharp.dll:HoloToolkit.UI.Keyboard.KeyboardKeyFunc

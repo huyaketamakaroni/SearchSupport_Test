@@ -34,7 +34,7 @@ public class UnityTargetRotation: MonoBehaviour
 	
         
     //Displayを制御するための変数
-	public static GameObject display;
+	public GameObject display;
 	public static GameObject DebugLog;
 	bool is_debug_mode = true;
 	Color BoxInvisibleColor = Color.white;
@@ -291,7 +291,7 @@ public class UnityTargetRotation: MonoBehaviour
 			SockertSend.SetNumFlag(true);
 			int mode = PlayModeSelecter.GetMode();
 			if (mode == 2 || mode == 4 || mode == 0) {
-
+                
                 if (patternA[CurrentAnnotationId] % 3 == 1)
                 {
                     TaskText.text = "「赤い箱」を探せ";
@@ -378,7 +378,7 @@ public class UnityTargetRotation: MonoBehaviour
 			}
 
             //正解の場合次へ
-
+            TargetTracker.targetObject = display;
             targetAudio.clip = null;
             targetAudio.Play();
             audioOK.Play();
