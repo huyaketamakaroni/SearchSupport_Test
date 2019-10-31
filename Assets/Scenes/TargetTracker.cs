@@ -35,15 +35,6 @@ public class TargetTracker : MonoBehaviour
     // -- Unity Update関数 ---------------------------- //
     void Update()
     {
-        if (Input.GetKeyDown("o")){
-            forwardDistance = forwardDistance + 0.05f;
-        }
-        if (Input.GetKeyDown("i"))
-        {
-            forwardDistance = forwardDistance - 0.05f;
-        }
-
-
         Vector3 targetPoint = Camera.main.WorldToViewportPoint(targetObject.transform.position);
 
         float distance = (Camera.main.transform.position - targetObject.transform.position).sqrMagnitude;  // HoloLensと対象コンテナ間の距離

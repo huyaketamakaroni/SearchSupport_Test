@@ -19,6 +19,20 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     private bool sharePosFlag = false;
     private bool shareRotaFlag = true;
 
+
+    void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+           
+        }
+
+        if (Input.GetKeyDown("q"))
+        {
+            
+        }
+    }
+
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
