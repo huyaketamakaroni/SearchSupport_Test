@@ -93,6 +93,12 @@ public class PereferalTest : MonoBehaviour
 
             if (targetIsFront)
             {
+                if (TargetTracker.screenArea.Contains(TargetTracker.targetPoint))
+                {
+                    direction = "look";
+                    return direction;
+                }
+
                 //方向判定
                 if (radian<=22.5f||radian>337.5f)
                     direction="right";

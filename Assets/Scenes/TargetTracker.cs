@@ -21,10 +21,12 @@ public class TargetTracker : MonoBehaviour
     [Range(0.1f, 3.0f)] public float thresholdAirTap = 1.0f;
 
     public static bool isLook = false;
-
+    Vector3 yplus = new Vector3(0,0.03f,0);
 
     // -- 内部設定変数 ---------------------------- //
-    private Rect screenArea = new Rect(0, 0, 1, 1);
+    public static Rect screenArea = new Rect(0f,0f, 1f, 1f);
+
+    public static Vector3 targetPoint;
 
     private void Awake()
     {
@@ -35,12 +37,13 @@ public class TargetTracker : MonoBehaviour
     // -- Unity Update関数 ---------------------------- //
     void Update()
     {
-        Vector3 targetPoint = Camera.main.WorldToViewportPoint(targetObject.transform.position);
+        targetPoint = Camera.main.WorldToViewportPoint(targetObject.transform.position);
 
         float distance = (Camera.main.transform.position - targetObject.transform.position).sqrMagnitude;  // HoloLensと対象コンテナ間の距離
 
         Vector3 forward = forwardDistance * Camera.main.transform.TransformDirection(Vector3.forward);
         transform.position = Camera.main.transform.position + forward;
+        transform.position += yplus;
         transform.LookAt(targetObject.transform);
 
 
@@ -65,7 +68,7 @@ public class TargetTracker : MonoBehaviour
             GameObject gameObject = child.gameObject;
             Renderer renderer = gameObject.GetComponent<Renderer>();
 
-            renderer.enabled = renderFlag;
+            //renderer.enabled = renderFlag;
             //renderer.material.color = matColor;
         }
     }

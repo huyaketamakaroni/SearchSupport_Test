@@ -21,7 +21,7 @@ public class SockertSend : MonoBehaviour
     //debug用
     //private static string adPC = "http://192.168.6.3:80";
     [SerializeField]
-    private static string adPC = "http://192.168.6.113:80";
+    private static string adPC = "http://192.168.6.165:80";
     //private static string adPC = "http://169.254.72.139:80";
     //private static string adPC = "http://127.0.0.1:80";
     //private static string adPC = "http://192.168.6.159:80";

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using HoloToolkit.Unity.InputModule;
 
 public class UnityTargetRotation: MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class UnityTargetRotation: MonoBehaviour
 
     public GameObject arrowObj;
 
-
+    public Material InvMaterial;
 
     [Header("音")]
     //音用flag
@@ -29,7 +30,7 @@ public class UnityTargetRotation: MonoBehaviour
     private static bool gameOverFlag = false;
 
 	//配列の最大数を決定するための変数
-	private int TARGET_MAX = 3;
+	private int TARGET_MAX = 10;
 	private int OBJECT_MAX = 48;
 	
         
@@ -55,17 +56,20 @@ public class UnityTargetRotation: MonoBehaviour
 
 	//棚の番号配置
 	public static int[] BoxIds = new int[] {
-        1, 2, 3, 4, 5, 6, 7, 8, 9 ,10,11,12,
-        13,14,15,16,17,18,19,20,21,22,23,24,
-        25,26,27,28,29,30,31,32,33,34,35,36,
-        37,38,39,50,41,42,43,44,45,46,47,48
+        38, 18, 17, 45, 3, 41, 32, 20, 16, 35, 2, 36,//前
+        39, 24, 10, 14, 23, 44, 42, 22, 25, 47, 30, 43,//右
+        15 ,7, 37, 4, 11, 46, 31, 13, 48, 5, 19, 21,//後
+        6, 27, 26, 34, 29, 8, 40, 9, 28, 12, 1, 33//左
     };
 
     //探索順序のパターン
-	public static int[] patternA = new int[] { 4,17,48 };
-	public static int[] patternB = new int[] { 1, 2, 3 };
-    public static int[] patternC = new int[] { 36, 19, 12 };
-    
+	public static int[] patternA = new int[] { 39, 46, 22, 33, 9, 25, 3, 4, 21, 31};
+	public static int[] patternB = new int[] { 11, 24, 35, 44, 31, 6, 2, 40, 26, 30};
+    public static int[] patternC = new int[] { 2, 6, 33, 48, 17, 29, 44, 1, 8, 29};
+    public static int[] patternD = new int[] { 7, 41, 36};
+    public static int[] patternE = new int[] { 12, 28, 19};
+    public static int[] patternF = new int[] { 32, 18, 39};
+
     //実際に探索させる順序の配列
     public static int[] AnnotationIds = null;
 
@@ -74,8 +78,7 @@ public class UnityTargetRotation: MonoBehaviour
 	public static int CurrentAnnotationId = 0;
 	public double duration = 0.0;
 	public float accumuDeltaTime = 0.0f;
-	public Texture targetTexture;
-
+    public Material InvMaterial2;
 
     void Start()
 	{
@@ -115,16 +118,62 @@ public class UnityTargetRotation: MonoBehaviour
 		SockertSend.SetDirection("no");
 		SockertSend.SyncDisplay(this);
 	}
+    
+    void LookBoxColor()
+    {
+        for (int i = 0; i < OBJECT_MAX; i++)
+        {
+            m_TargetObj[i].GetComponent<Renderer>().material.color = Color.white;
+        }
+    }
+
+    void InvBoxColor()
+    {
+        for (int i = 0; i < OBJECT_MAX; i++)
+        {
+            m_TargetObj[i].GetComponent<Renderer>().material.color = Color.black;
+        }
+    }
 
     int select_mode = 0;
+    int oracticeFlag = 0;
 
     void Update()
 	{
 		float fps = 1f / Time.deltaTime;
 
-        if(select_mode == 0)
+ 
+
+        if (select_mode == 0)
         {
-             //情報提示パターンの選択
+            if (Input.GetKeyDown("r") && Input.GetKey("x"))
+            {
+                transform.Rotate(new Vector3(0.5f, 0, 0));
+            }
+
+            if (Input.GetKeyDown("l") && Input.GetKey("x"))
+            {
+                transform.Rotate(new Vector3(-0.5f, 0, 0));
+            }
+            if (Input.GetKeyDown("r") && Input.GetKey("y"))
+            {
+                transform.Rotate(new Vector3(0, 0.5f, 0));
+            }
+            if (Input.GetKeyDown("l") && Input.GetKey("y"))
+            {
+                transform.Rotate(new Vector3(0, -0.5f, 0));
+            }
+
+            if (Input.GetKeyDown("r") && Input.GetKey("z"))
+            {
+                transform.Rotate(new Vector3(0, 0, 0.5f));
+            }
+            if (Input.GetKeyDown("l") && Input.GetKey("z"))
+            {
+                transform.Rotate(new Vector3(0, 0, -0.5f));
+            }
+
+            //情報提示パターンの選択
             TaskText.text = "提示パターン選択";
 
             if (Input.GetKeyDown("1"))
@@ -134,6 +183,7 @@ public class UnityTargetRotation: MonoBehaviour
                 arrowObj.SetActive(true);
                 DebugLog.SetActive(false);
                 StatusbarText.enabled = false;
+                InvBoxColor();
             }
             else if (Input.GetKeyDown("2"))
             {
@@ -142,7 +192,7 @@ public class UnityTargetRotation: MonoBehaviour
                 arrowObj.SetActive(false);
                 DebugLog.SetActive(false);
                 StatusbarText.enabled = false;
-
+                InvBoxColor();
             }
             else if (Input.GetKeyDown("3"))
             {
@@ -151,7 +201,7 @@ public class UnityTargetRotation: MonoBehaviour
                 arrowObj.SetActive(false);
                 DebugLog.SetActive(false);
                 StatusbarText.enabled = false;
-
+                InvBoxColor();
             }
             else if (Input.GetKeyDown("4"))
             {
@@ -160,8 +210,7 @@ public class UnityTargetRotation: MonoBehaviour
                 arrowObj.SetActive(true);
                 DebugLog.SetActive(true);
                 StatusbarText.enabled = true;
-
-
+                LookBoxColor();
             }
 
             if (select_mode != 0)
@@ -175,11 +224,35 @@ public class UnityTargetRotation: MonoBehaviour
             TaskText.text = "探索パターンを選択";
 
             if (Input.GetKeyDown("a"))
+            {
                 AnnotationIds = patternA;
+                TARGET_MAX = 10;
+            }
             else if (Input.GetKeyDown("b"))
+            {
                 AnnotationIds = patternB;
+                TARGET_MAX = 10;
+            }
             else if (Input.GetKeyDown("c"))
+            {
                 AnnotationIds = patternC;
+                TARGET_MAX = 10;
+            }
+            else if (Input.GetKeyDown("d"))
+            {
+                AnnotationIds = patternD;
+                TARGET_MAX = 3;
+            }
+            else if (Input.GetKeyDown("e"))
+            {
+                AnnotationIds = patternE;
+                TARGET_MAX = 3;
+            }
+            else if (Input.GetKeyDown("f"))
+            {
+                AnnotationIds = patternF;
+                TARGET_MAX = 3;
+            }
         }
 
         if (select_mode != 0 && AnnotationIds != null)
@@ -197,10 +270,17 @@ public class UnityTargetRotation: MonoBehaviour
             gameOverFlag = false;
             AnnotationIds = null;
             DebugLog.SetActive(true);
+            TargetTracker.targetObject = display;
             Debug.Log("Key: Enter");
         }
 
+
+
+
+
     }
+
+
 
     void Task()
     {
@@ -227,19 +307,22 @@ public class UnityTargetRotation: MonoBehaviour
         SockertSend.SetEnter(false);
         SockertSend.SetTrial(CurrentAnnotationId);
 
+        if(targetAudio != null)
+        {
+            if (TargetTracker.screenArea.Contains(TargetTracker.targetPoint))
+                targetAudio.volume = 1f;
+            else
+                targetAudio.volume = 0.3f;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             ProceesPhase();
             Debug.Log("Key: Space");
         }
 
-        
 
 
-
-   
 
         //フラグを全部見てから、最後にSocketを送る
         SockertSend.SyncDisplay(this);
@@ -270,15 +353,14 @@ public class UnityTargetRotation: MonoBehaviour
         }
     }
 
-
-	//スペースを押したときの動作
-	void ProceesPhase()
+    //スペースを押したときの動作
+    void ProceesPhase()
 	{
 		GameObject box = GameObject.Find("Cube"+AnnotationIds[CurrentAnnotationId]);
 
-
+        
 		//待機状態→探索フェーズ
-		if (phase==0)
+		if (phase==0 && TargetTracker.screenArea.Contains(TargetTracker.targetPoint))
 		{
 			//時間計測スタート
 
@@ -286,7 +368,7 @@ public class UnityTargetRotation: MonoBehaviour
 			SockertSend.SetNumFlag(true);
 			int mode = PlayModeSelecter.GetMode();
 			if (mode == 2 || mode == 4 || mode == 0) {
-                
+                /*
                 if (AnnotationIds[CurrentAnnotationId] % 3 == 1)
                 {
                     TaskText.text = "「赤い箱」を探せ";
@@ -303,7 +385,9 @@ public class UnityTargetRotation: MonoBehaviour
                     TaskText.text = "「青い箱」を探せ";
                     BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1].GetComponent<Renderer>().material.color = Color.blue;
                 }
+                */
 
+                TaskText.text = BoxIds[AnnotationIds[CurrentAnnotationId] - 1] + "を探せ";
                 TargetTracker.targetObject = BoxAnnotations[AnnotationIds[CurrentAnnotationId] - 1];
             }
 
@@ -344,7 +428,7 @@ public class UnityTargetRotation: MonoBehaviour
 			duration=Time.time-duration;
 			SockertSend.SetDuration(duration);
 			Debug.Log("-----------------");
-			Debug.Log("phase 3: "+duration);
+			Debug.Log("phase 2: "+duration);
 
 
 			//phase3
@@ -377,7 +461,7 @@ public class UnityTargetRotation: MonoBehaviour
             targetAudio.clip = null;
             targetAudio.Play();
             audioOK.Play();
-			box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
+			//box.GetComponent<Renderer>().material.color=BoxInvisibleColor;
 
 
 			//ディスプレイを見たとき
@@ -409,56 +493,31 @@ public class UnityTargetRotation: MonoBehaviour
 
 	public static GameObject GetTempTargetArray()
 	{
-		try
-		{
-			return GameObject.Find("Cube"+AnnotationIds[CurrentAnnotationId]);
-		}
-		catch
-		{
-			return GameObject.Find("Cube"+1);
-		}
+        if (phase == 2)
+        {
+            try
+            {
+                return TargetTracker.targetObject;
+
+            }
+            catch
+            {
+                return TargetTracker.targetObject;
+
+            }
+        }
+        else
+        {
+            return TargetTracker.targetObject;
+        }
+
 	}
 
 
     //Debugモード
     void SetDebugMode(bool is_debug_mode)
     {
-        //画面上から流れるデバッグメッセージ
-        if (is_debug_mode)
-        {
-            for (int i = 0; i < OBJECT_MAX; i++)
-            {
-                if (BoxAnnotations[i].GetComponent<Renderer>().material.color == BoxInvisibleColor)
-                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
-                else
-                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
-            }
-
-            BoxInvisibleColor = Color.white;
-        }
-        else
-        {
-            for (int i = 0; i < OBJECT_MAX; i++)
-            {
-                if (BoxAnnotations[i].GetComponent<Renderer>().material.color == BoxInvisibleColor)
-                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
-                else
-                    BoxAnnotations[i].GetComponent<Renderer>().material.color = Color.white;
-            }
-            BoxInvisibleColor = Color.white;
-        }
-
-
-        //画面下の状態表示
-        if (is_debug_mode)
-        {
-            StatusbarText.enabled = true;
-        }
-        else
-        {
-            StatusbarText.enabled = false;
-        }
-
+        
     }
 
 }

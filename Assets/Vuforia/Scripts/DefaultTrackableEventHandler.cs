@@ -19,17 +19,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     private bool sharePosFlag = false;
     private bool shareRotaFlag = true;
 
-
     void Update()
     {
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.LeftShift))
         {
-           
-        }
+            SharingPoint.transform.position = transform.position;
+            //SharingPoint.transform.rotation = transform.rotation;
 
-        if (Input.GetKeyDown("q"))
-        {
-            
+            SharingPoint.SetActive(true);
         }
     }
 
@@ -113,26 +110,31 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         //追加
         if (!sharePosFlag)
         {
+            SharingPoint.transform.position = transform.position;
+            SharingPoint.SetActive(true);
             sharePosFlag = true;
+            //sharePosFlag = true;
             // マーカーのPositionとRotationを取得する
             Vector3 markerPosition = transform.position;
-            Vector3 markerRotation = transform.rotation.eulerAngles;
+            //Vector3 markerRotation = transform.rotation.eulerAngles;
             // 基準点の座標系としてマーカーの認識地点に設定する            
 
-            SharingPoint.transform.position = transform.position;
-            //SharingPoint.transform.rotation = transform.rotation;
-
             /*
+            SharingPoint.transform.position = transform.position;
+            SharingPoint.transform.rotation = transform.rotation;
+
+            
             if (shareRotaFlag)
             {
                 SharingPoint.transform.Rotate(markerRotation);
                 shareRotaFlag = false;
             }
-            */
+            
             // 基準点を有効化する
             SharingPoint.SetActive(true);
             // VuforiaSharingPointにアプリケーションロジックを書いたスクリプトをアタッチしておけば、
             // 以降、Sharingが始まる
+            */
         }
 
 
@@ -160,7 +162,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
-            
+
+        sharePosFlag = false;
+
     }
 
     #endregion // PROTECTED_METHODS
