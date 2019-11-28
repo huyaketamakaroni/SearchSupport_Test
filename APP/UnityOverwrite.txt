@@ -5,26 +5,18 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-SearchSupport_Test.sln: modified
+SearchSupport_Test.sln: 8B2536E2F0D012D276F4460FCAAA4915
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C51737
 GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 1D02BC64BAC0D041019673A1C4C51737
 SearchSupport_Test\App.cs: 9CC7116BBD44B014CD1773580265633F
 SearchSupport_Test\Package.appxmanifest: FE7BB1DAAEBA77AE831E17B6271EB297
 SearchSupport_Test\project.json: 1D02BC64BAC0D041019673A1C4C51737
-SearchSupport_Test\SearchSupport_Test.csproj: 10AD40CA38663F44DE3866C21EBB69EF
-SearchSupport_Test\SearchSupport_Test.csproj.user: modified
+SearchSupport_Test\SearchSupport_Test.csproj: A4FDFD088E4E92D9492F76EF2528E6B4
+SearchSupport_Test\SearchSupport_Test.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
 SearchSupport_Test\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 SearchSupport_Test\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 SearchSupport_Test\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
 SearchSupport_Test\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
 SearchSupport_Test\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 SearchSupport_Test\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
-SearchSupport_Test\bin\x86\Release\AppX\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
-SearchSupport_Test\bin\x86\Release\AppX\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
-SearchSupport_Test\bin\x86\Release\AppX\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
-SearchSupport_Test\bin\x86\Release\AppX\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
-SearchSupport_Test\bin\x86\Release\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
-SearchSupport_Test\bin\x86\Release\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
-SearchSupport_Test\bin\x86\Release\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
-SearchSupport_Test\obj\x86\Release\SearchSupport_Test.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
 SearchSupport_Test\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826

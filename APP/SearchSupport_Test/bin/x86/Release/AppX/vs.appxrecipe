@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-11-14T08:22:58.077</Modified>
+      <Modified>2019-11-21T03:51:03.026</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\SearchSupport_Test.exe">
       <PackagePath>entrypoint\SearchSupport_Test.exe</PackagePath>
-      <Modified>2019-11-14T08:22:41.499</Modified>
+      <Modified>2019-11-21T03:50:45.054</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -500,7 +500,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2019-11-14T08:21:51.840</Modified>
+      <Modified>2019-11-21T03:49:33.261</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -586,15 +586,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
-      <Modified>2019-11-14T08:21:01.297</Modified>
+      <Modified>2019-11-21T03:48:43.199</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2019-11-14T08:21:00.321</Modified>
+      <Modified>2019-11-21T03:48:36.701</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2019-11-14T08:20:58.561</Modified>
+      <Modified>2019-11-21T03:48:34.895</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -602,39 +602,39 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2019-11-14T08:21:01.292</Modified>
+      <Modified>2019-11-21T03:48:43.195</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2019-11-14T08:21:00.440</Modified>
+      <Modified>2019-11-21T03:48:36.807</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\resources.assets">
       <PackagePath>Data\resources.assets</PackagePath>
-      <Modified>2019-11-14T08:21:00.451</Modified>
+      <Modified>2019-11-21T03:48:36.818</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2019-11-14T08:21:01.042</Modified>
+      <Modified>2019-11-21T03:48:41.141</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2019-11-14T08:20:58.554</Modified>
+      <Modified>2019-11-21T03:48:34.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
-      <Modified>2019-11-14T08:21:01.039</Modified>
+      <Modified>2019-11-21T03:48:41.138</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2019-11-14T08:21:51.797</Modified>
+      <Modified>2019-11-21T03:49:33.121</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\nativePlugins.txt">
       <PackagePath>Data\nativePlugins.txt</PackagePath>
-      <Modified>2019-11-14T08:21:51.799</Modified>
+      <Modified>2019-11-21T03:49:33.126</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\sharedassets0.resource">
       <PackagePath>Data\sharedassets0.resource</PackagePath>
-      <Modified>2019-11-14T08:21:01.030</Modified>
+      <Modified>2019-11-21T03:48:41.132</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Data\StreamingAssets\Vuforia\GamePackage.dat">
       <PackagePath>Data\StreamingAssets\Vuforia\GamePackage.dat</PackagePath>
@@ -662,243 +662,243 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-11-14T08:22:42.173</Modified>
+      <Modified>2019-11-21T03:50:47.272</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.221</Modified>
+      <Modified>2019-11-21T03:50:59.458</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.241</Modified>
+      <Modified>2019-11-21T03:50:59.484</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.TerrainModule.dll">
       <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.264</Modified>
+      <Modified>2019-11-21T03:50:59.506</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.TilemapModule.dll">
       <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.287</Modified>
+      <Modified>2019-11-21T03:50:59.529</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.329</Modified>
+      <Modified>2019-11-21T03:50:59.567</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.SharedInternalsModule.dll">
       <PackagePath>UnityEngine.SharedInternalsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.359</Modified>
+      <Modified>2019-11-21T03:50:59.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ScreenCaptureModule.dll">
       <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.379</Modified>
+      <Modified>2019-11-21T03:50:59.618</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.SpriteMaskModule.dll">
       <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.399</Modified>
+      <Modified>2019-11-21T03:50:59.635</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.417</Modified>
+      <Modified>2019-11-21T03:50:59.653</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.SpriteShapeModule.dll">
       <PackagePath>UnityEngine.SpriteShapeModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.438</Modified>
+      <Modified>2019-11-21T03:50:59.674</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UIModule.dll">
       <PackagePath>UnityEngine.UIModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.457</Modified>
+      <Modified>2019-11-21T03:50:59.693</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.VRModule.dll">
       <PackagePath>UnityEngine.VRModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.485</Modified>
+      <Modified>2019-11-21T03:50:59.720</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.511</Modified>
+      <Modified>2019-11-21T03:50:59.743</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.533</Modified>
+      <Modified>2019-11-21T03:50:59.764</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.WebModule.dll">
       <PackagePath>UnityEngine.WebModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.552</Modified>
+      <Modified>2019-11-21T03:50:59.790</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.575</Modified>
+      <Modified>2019-11-21T03:50:59.811</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityConnectModule.dll">
       <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.593</Modified>
+      <Modified>2019-11-21T03:50:59.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.612</Modified>
+      <Modified>2019-11-21T03:50:59.849</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.642</Modified>
+      <Modified>2019-11-21T03:50:59.879</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityWebRequestAudioModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.665</Modified>
+      <Modified>2019-11-21T03:50:59.912</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityWebRequestWWWModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.686</Modified>
+      <Modified>2019-11-21T03:50:59.931</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.708</Modified>
+      <Modified>2019-11-21T03:50:59.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.742</Modified>
+      <Modified>2019-11-21T03:50:59.970</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.PhysicsModule.dll">
       <PackagePath>UnityEngine.PhysicsModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.776</Modified>
+      <Modified>2019-11-21T03:51:00.002</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ARModule.dll">
       <PackagePath>UnityEngine.ARModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.799</Modified>
+      <Modified>2019-11-21T03:51:00.024</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AnimationModule.dll">
       <PackagePath>UnityEngine.AnimationModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.830</Modified>
+      <Modified>2019-11-21T03:51:00.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AssetBundleModule.dll">
       <PackagePath>UnityEngine.AssetBundleModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.852</Modified>
+      <Modified>2019-11-21T03:51:00.073</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.CoreModule.dll">
       <PackagePath>UnityEngine.CoreModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.417</Modified>
+      <Modified>2019-11-21T03:51:00.315</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ClothModule.dll">
       <PackagePath>UnityEngine.ClothModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.500</Modified>
+      <Modified>2019-11-21T03:51:00.392</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.527</Modified>
+      <Modified>2019-11-21T03:51:00.415</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.557</Modified>
+      <Modified>2019-11-21T03:51:00.440</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.AccessibilityModule.dll">
       <PackagePath>UnityEngine.AccessibilityModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.577</Modified>
+      <Modified>2019-11-21T03:51:00.459</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.CrashReportingModule.dll">
       <PackagePath>UnityEngine.CrashReportingModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.595</Modified>
+      <Modified>2019-11-21T03:51:00.478</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.JSONSerializeModule.dll">
       <PackagePath>UnityEngine.JSONSerializeModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.614</Modified>
+      <Modified>2019-11-21T03:51:00.496</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.InputModule.dll">
       <PackagePath>UnityEngine.InputModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.632</Modified>
+      <Modified>2019-11-21T03:51:00.515</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ParticlesLegacyModule.dll">
       <PackagePath>UnityEngine.ParticlesLegacyModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.651</Modified>
+      <Modified>2019-11-21T03:51:00.535</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.Physics2DModule.dll">
       <PackagePath>UnityEngine.Physics2DModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.680</Modified>
+      <Modified>2019-11-21T03:51:00.569</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.PerformanceReportingModule.dll">
       <PackagePath>UnityEngine.PerformanceReportingModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.703</Modified>
+      <Modified>2019-11-21T03:51:00.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ParticleSystemModule.dll">
       <PackagePath>UnityEngine.ParticleSystemModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.731</Modified>
+      <Modified>2019-11-21T03:51:00.620</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.GameCenterModule.dll">
       <PackagePath>UnityEngine.GameCenterModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.768</Modified>
+      <Modified>2019-11-21T03:51:00.650</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2019-11-14T08:21:25.487</Modified>
+      <Modified>2019-11-21T03:49:07.178</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.DirectorModule.dll">
       <PackagePath>UnityEngine.DirectorModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.789</Modified>
+      <Modified>2019-11-21T03:51:00.673</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.GridModule.dll">
       <PackagePath>UnityEngine.GridModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.808</Modified>
+      <Modified>2019-11-21T03:51:00.697</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.IMGUIModule.dll">
       <PackagePath>UnityEngine.IMGUIModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.837</Modified>
+      <Modified>2019-11-21T03:51:00.732</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.ImageConversionModule.dll">
       <PackagePath>UnityEngine.ImageConversionModule.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.861</Modified>
+      <Modified>2019-11-21T03:51:00.756</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.922</Modified>
+      <Modified>2019-11-21T03:51:00.813</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.Timeline.dll">
       <PackagePath>UnityEngine.Timeline.dll</PackagePath>
-      <Modified>2019-11-14T08:22:56.976</Modified>
+      <Modified>2019-11-21T03:51:00.858</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.034</Modified>
+      <Modified>2019-11-21T03:51:00.915</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.121</Modified>
+      <Modified>2019-11-21T03:51:01.006</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.SpatialTracking.dll">
       <PackagePath>UnityEngine.SpatialTracking.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.162</Modified>
+      <Modified>2019-11-21T03:51:01.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.Analytics.dll">
       <PackagePath>UnityEngine.Analytics.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.187</Modified>
+      <Modified>2019-11-21T03:51:01.061</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.217</Modified>
+      <Modified>2019-11-21T03:51:01.093</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Vuforia.UnityExtensions.dll">
       <PackagePath>Vuforia.UnityExtensions.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.276</Modified>
+      <Modified>2019-11-21T03:51:01.153</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.StandardEvents.dll">
       <PackagePath>UnityEngine.StandardEvents.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.322</Modified>
+      <Modified>2019-11-21T03:51:01.190</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.387</Modified>
+      <Modified>2019-11-21T03:51:01.246</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\GLTFSerializationUWP.dll">
       <PackagePath>GLTFSerializationUWP.dll</PackagePath>
-      <Modified>2019-11-14T08:22:57.442</Modified>
+      <Modified>2019-11-21T03:51:01.294</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.116</Modified>
+      <Modified>2019-11-21T03:50:59.361</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\Assembly-CSharp-firstpass.dll">
       <PackagePath>Assembly-CSharp-firstpass.dll</PackagePath>
-      <Modified>2019-11-14T08:22:55.201</Modified>
+      <Modified>2019-11-21T03:50:59.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\SearchSupport_Test\bin\x86\Release\Core\SearchSupport_Test.exe">
       <PackagePath>SearchSupport_Test.exe</PackagePath>
-      <Modified>2019-11-14T08:22:58.073</Modified>
+      <Modified>2019-11-21T03:51:03.014</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
