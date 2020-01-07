@@ -370,12 +370,12 @@
 
   <ItemGroup>
     <ProjectReference Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
-      <Project>{c21464a6-a8b0-4c1d-9b18-1e19d87f5766}</Project>
+      <Project>{34d26406-4d5a-4934-91f4-df0cf43b710b}</Project>
       <Name>Assembly-CSharp</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{66602294-8635-4d6b-81e0-e246c20e30ea}</Project>
+      <Project>{0c4a6c47-f59c-4efc-815f-620c6212112f}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
       <Private>False</Private>
     </ProjectReference>

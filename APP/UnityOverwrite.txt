@@ -5,13 +5,13 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-SearchSupport_Test.sln: 8B2536E2F0D012D276F4460FCAAA4915
+SearchSupport_Test.sln: 6E89B91DC2D6056D8E22E47F648B5546
 GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C51737
 GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 1D02BC64BAC0D041019673A1C4C51737
 SearchSupport_Test\App.cs: 9CC7116BBD44B014CD1773580265633F
 SearchSupport_Test\Package.appxmanifest: FE7BB1DAAEBA77AE831E17B6271EB297
 SearchSupport_Test\project.json: 1D02BC64BAC0D041019673A1C4C51737
-SearchSupport_Test\SearchSupport_Test.csproj: A4FDFD088E4E92D9492F76EF2528E6B4
+SearchSupport_Test\SearchSupport_Test.csproj: 86056D8B3661F1858DBBB77B92A5D472
 SearchSupport_Test\SearchSupport_Test.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
 SearchSupport_Test\Assets\SplashScreen.scale-200.png: A85C1D7624B6902CF8CEBD6F0200A826
 SearchSupport_Test\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
