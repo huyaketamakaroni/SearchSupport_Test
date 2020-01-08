@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34d26406-4d5a-4934-91f4-df0cf43b710b}</ProjectGuid>
+    <ProjectGuid>{2c6a024d-00c0-44da-b9f3-02567988fd22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\aki\Documents\Unity\SearchSupport_Test\APP\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{0c4a6c47-f59c-4efc-815f-620c6212112f}</Project>
+      <Project>{26bdb8f5-7570-4af8-a44c-751124da3cee}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <Reference Include="UnityEngine.TextRenderingModule">
